@@ -1,0 +1,44 @@
+void CEx_GridView::OnInitialUpdate()
+{…
+	while (!m_pSet->IsEOF())	m_pSet->MoveNext();	
+	m_pSet->MoveFirst();
+	m_MSFGrid.SetCols(m_pSet->m_nFields+1 );
+											// 根据字段数设置单元格最大列数
+	m_MSFGrid.SetRows(m_pSet->GetRecordCount()+1);
+											// 根据记录数设置单元格最大行数
+	m_MSFGrid.SetColWidth(-1,1440);
+	// 将所有的单元格都设为相同的列宽。-1表示所有的列宽，列宽单位为一个点的
+	// 1/20(一个点是1/72英寸)，也就是说，1440刚好为1英寸
+	// 定义单元格的表头
+	m_MSFGrid.SetRow(0);	m_MSFGrid.SetCol(0);	// 定位到(0,0)单元格
+	m_MSFGrid.SetText("记录号");						// 设置其显示内容
+	m_MSFGrid.SetCellAlignment(4);	// 设置单元格对齐方式，4表示水平和垂直居中
+	CODBCFieldInfo field;
+	for (UINT i=0; i<m_pSet->m_nFields; i++)	{
+		m_MSFGrid.SetRow(0);	m_MSFGrid.SetCol(i+1);	
+		m_pSet->GetODBCFieldInfo(i,field);		// 获取指定字段信息
+		m_MSFGrid.SetText(field.m_strName);	
+		m_MSFGrid.SetCellAlignment(4);	
+	}
+	int iRow=1;
+	while (!m_pSet->IsEOF())	{		// 将表的记录内容显示在单元格中
+		CString str;
+		str.Format("记录%d",iRow);
+		m_MSFGrid.SetRow(iRow);	m_MSFGrid.SetCol(0);
+		m_MSFGrid.SetText(str);
+		m_MSFGrid.SetCellAlignment(4);	
+		for (UINT i=0; i<m_pSet->m_nFields; i++) 
+		{
+			m_MSFGrid.SetRow(iRow);	  m_MSFGrid.SetCol(i+1);	
+			m_pSet->GetFieldValue(i, str);
+										// 获取指定字段值，并自动转换成字符串
+			m_MSFGrid.SetText(str);	
+			m_MSFGrid.SetCellAlignment(4);	
+		}
+		iRow++;
+		m_pSet->MoveNext();
+	}
+	m_MSFGrid.SetRow(1);		m_MSFGrid.SetCol(1);
+	m_pSet->MoveFirst();
+}
+

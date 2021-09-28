@@ -1,0 +1,33 @@
+BOOL CEx_StudentDlg::OnInitDialog()
+{…
+	SetIcon(m_hIcon, FALSE);				// Set small icon
+	m_ImageList.Create(16, 16, ILC_COLOR8 | ILC_MASK, 2, 1);
+	m_ImageList.SetBkColor( RGB( 255,255,255 ));	// 消除图标黑色背景
+	m_treeCtrl.SetImageList( &m_ImageList, TVSIL_NORMAL );
+	SHFILEINFO fi;							// 定义一个文件信息结构变量
+	SHGetFileInfo("C:\\Windows", 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON);		// 获取文件夹图标
+	m_ImageList.Add( fi.hIcon );
+	SHGetFileInfo("C:\\Windows", 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON | SHGFI_OPENICON);
+											// 获取打开文件夹图标
+	m_ImageList.Add( fi.hIcon );
+	HTREEITEM hRoot, hSpec, hClass;
+	hRoot = m_treeCtrl.InsertItem("学生成绩",0,1);
+	CStudentSet sSet;
+	sSet.m_strSort = "special";				// 按专业排序
+	sSet.Open();
+	while (!sSet.IsEOF()){
+		hSpec = FindTreeItem( hRoot, sSet.m_special);
+										// 查找是否有重复的专业结点
+		if (hSpec == NULL)				// 若没有重复的专业结点
+			hSpec = m_treeCtrl.InsertItem( sSet.m_special, 0, 1, hRoot);
+		hClass = FindTreeItem( hSpec, sSet.m_studentno.Left(6));
+										// 查找是否有重复的班级结点
+		if (hClass == NULL)				// 若没有重复的班级结点
+			hClass = m_treeCtrl.InsertItem(sSet.m_studentno.Left(6), 0, 1, 				hSpec);
+		sSet.MoveNext();
+	}
+	sSet.Close();
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}

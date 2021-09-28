@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Grid - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_Grid.res" /d "_DEBUG" /d "_AFXDLL" "F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\Ex_Grid.rc"" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP77.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Grid.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\Ex_Grid.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\MainFrm.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\Ex_GridDoc.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\Ex_GridView.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\Ex_GridSet.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\rowcursor.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\msflexgrid.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\font.cpp"
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\picture.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP77.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP78.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Grid.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_Grid\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP78.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP79.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Grid.pdb" /debug /machine:I386 /out:"Debug/Ex_Grid.exe" /pdbtype:sept 
+".\Debug\Ex_Grid.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_GridDoc.obj"
+".\Debug\Ex_GridView.obj"
+".\Debug\Ex_GridSet.obj"
+".\Debug\Ex_Grid.res"
+".\Debug\rowcursor.obj"
+".\Debug\msflexgrid.obj"
+".\Debug\font.obj"
+".\Debug\picture.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP79.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_Grid.cpp
+MainFrm.cpp
+Ex_GridDoc.cpp
+Ex_GridView.cpp
+Ex_GridSet.cpp
+rowcursor.cpp
+msflexgrid.cpp
+font.cpp
+picture.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Grid.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

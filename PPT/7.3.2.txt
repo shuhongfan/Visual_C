@@ -1,0 +1,41 @@
+void CEx_ODBCView::OnRecAdd() 
+{
+	CScoreDlg dlg;
+	if (dlg.DoModal()==IDOK){
+		m_pSet->AddNew();
+		m_pSet->m_course		= dlg.m_strCourseNO;
+		m_pSet->m_studentno		= dlg.m_strStudentNO;
+		m_pSet->m_score			= dlg.m_fScore;
+		m_pSet->m_credit		= dlg.m_fCredit;
+		m_pSet->Update();
+		m_pSet->Requery();
+	}
+}
+void CEx_ODBCView::OnRecEdit() 
+{
+	CScoreDlg dlg;
+	dlg.m_strCourseNO	= m_pSet->m_course;	
+	dlg.m_strStudentNO	= m_pSet->m_studentno;	
+	dlg.m_fScore		= m_pSet->m_score;		
+	dlg.m_fCredit		= m_pSet->m_credit;	
+	if (dlg.DoModal()==IDOK){
+		m_pSet->Edit();
+		m_pSet->m_course		= dlg.m_strCourseNO;
+		m_pSet->m_studentno		= dlg.m_strStudentNO;
+		m_pSet->m_score			= dlg.m_fScore;
+		m_pSet->m_credit		= dlg.m_fCredit;
+		m_pSet->Update();
+		UpdateData(FALSE);
+	}
+}
+void CEx_ODBCView::OnRecDel() 
+{
+	CRecordsetStatus status;
+	m_pSet->GetStatus(status);
+	m_pSet->Delete();
+	if (status.m_lCurrentRecord==0)
+		m_pSet->MoveNext();
+	else
+		m_pSet->MoveFirst();
+	UpdateData(FALSE);	
+}

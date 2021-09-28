@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_DBCtrl - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_DBCtrl.res" /d "_DEBUG" /d "_AFXDLL" "F:\论著\2008年\Visual C++ 应用教程(邮电)\程序\第9章\Ex_DBCtrl\Ex_DBCtrl.rc"" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP9A.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_DBCtrl.pdb" /debug /machine:I386 /out:"Debug/Ex_DBCtrl.exe" /pdbtype:sept 
+".\Debug\Ex_DBCtrl.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_DBCtrlDoc.obj"
+".\Debug\Ex_DBCtrlView.obj"
+".\Debug\Ex_DBCtrl.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\DINGYO~1\LOCALS~1\Temp\RSP9A.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_DBCtrl.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

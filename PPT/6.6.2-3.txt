@@ -1,0 +1,37 @@
+void CEx_PrintView::AdjustAllLine(CDC *pDC)
+{
+	CEx_PrintDoc* pDoc = GetDocument();
+	int nLineNums =  pDoc->m_strContents.GetSize();	// 文档总行数
+	int tab = m_pageInfo.sizeChar.cx * 4;			// 为一个Tab设置4个字符
+	// 将文档的每一行作换行处理，只处理一次，以提高预览速度
+	// 处理的结果保存在arrText中
+	CString str;
+	if (pDoc->m_bNewDocument) {
+		m_arrText.RemoveAll();
+		CSize strSize;
+		for (int i=0; i<nLineNums; i++) 	{
+			str = pDoc->m_strContents.GetAt(i);
+			strSize = pDC->GetTabbedTextExtent(str, 1, &tab);
+			CString strTemp = str;
+			while ( strSize.cx > m_pageInfo.sizeLine.cx) {
+				unsigned int pos = 0;
+				for (pos = 0; pos<strlen(strTemp); pos++) {
+					CSize size = pDC->GetTabbedTextExtent(strTemp, pos+1, 						1, &tab);
+					if (size.cx >= m_pageInfo.sizeLine.cx) break;
+				}
+				// 判断汉字双字符是否被分开
+				int nCharHZ = 0;
+				for (unsigned int chIndex = 0; chIndex <= pos; chIndex++)
+					if (strTemp.GetAt(chIndex) < 0) nCharHZ++;
+				if (nCharHZ % 2) pos = pos - 1;
+				m_arrText.Add(strTemp.Left(pos+1));
+				strTemp = strTemp.Mid(pos+1);
+				strSize = pDC->GetTabbedTextExtent(strTemp, 1, &tab);
+			}
+			m_arrText.Add(strTemp);
+		}
+		pDoc->m_bNewDocument = FALSE;
+		m_nLineArray.RemoveAll();
+		m_nLineArray.Add(0);	
+	}
+}

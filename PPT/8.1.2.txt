@@ -1,0 +1,31 @@
+int CEx_OpenGLView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (CView::OnCreate(lpCreateStruct) == -1)	return -1;
+	PIXELFORMATDESCRIPTOR pfd =	{
+		sizeof(PIXELFORMATDESCRIPTOR),  // 该结构的大小
+		1,                              		// 该结构的版本号，这里必须为1
+		PFD_DRAW_TO_WINDOW |       		// 支持屏幕绘图
+		  PFD_SUPPORT_OPENGL |        	// 支持OpenGL
+		  PFD_DOUBLEBUFFER,          		// 支持双缓冲
+		PFD_TYPE_RGBA,                		// 像素颜色模式为RGBA
+		24,                             		// 颜色的位数为24位
+		0, 0, 0, 0, 0, 0,               	// 忽略各颜色分量在RGBA的位数
+		0,                              		// 在RGBA中没有alpha成分
+		0,                              		// 忽略alpha的偏移量
+		0,                              		// 没有累加缓冲区
+		0, 0, 0, 0,                     	// 忽略累加缓冲区中各颜色的位数
+		32,                             		// z缓冲区的深度为32位
+		0,                              		// 没有模板缓冲区
+		0,                              		// 没有辅助缓冲区
+		PFD_MAIN_PLANE,             		// 设为主平面类型
+		0,                              		// 保留，这里必须是0
+		0, 0, 0                         	// 忽略层、颜色等的屏蔽
+	};
+	CClientDC dc(this);
+	int pixelformat = ChoosePixelFormat(dc.GetSafeHdc(), &pfd);
+	if (SetPixelFormat(dc.GetSafeHdc(), pixelformat,&pfd) == FALSE){
+		MessageBox("SetPixelFormat failed");		return -1;
+	}
+	m_hGLRC = wglCreateContext(dc.GetSafeHdc());
+	return 0;
+}

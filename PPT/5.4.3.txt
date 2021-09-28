@@ -1,0 +1,32 @@
+void CEx_TreeView::OnInitialUpdate()
+{
+	CTreeView::OnInitialUpdate();
+	CTreeCtrl& treeCtrl = GetTreeCtrl();
+	m_ImageList.Create(16, 16, ILC_COLOR8|ILC_MASK, 2, 1);
+	m_ImageList.SetBkColor( RGB( 255,255,255 ));		// 消除图标黑色背景
+	treeCtrl.SetImageList(&m_ImageList,TVSIL_NORMAL);
+	// 获取Windows文件夹路径以便获取其文件夹图标
+	CString strPath;
+	GetWindowsDirectory((LPTSTR)(LPCTSTR)strPath, MAX_PATH+1);
+	// 获取文件夹及其打开时的图标，并添加到图像列表中
+	SHFILEINFO fi;
+	SHGetFileInfo( strPath, 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON );
+	m_ImageList.Add( fi.hIcon );
+	SHGetFileInfo( strPath, 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON | SHGFI_OPENICON );
+	m_ImageList.Add( fi.hIcon );
+	// 获取已有的驱动器图标和名称
+	CString str;
+	for( int i = 0; i < 32; i++ ){
+		str.Format( "%c:\\", 'A'+i );
+		SHGetFileInfo( str, 0, &fi, sizeof(SHFILEINFO),
+			SHGFI_ICON | SHGFI_SMALLICON | SHGFI_DISPLAYNAME);
+		if (fi.hIcon) {
+			int nImage = m_ImageList.Add( fi.hIcon );
+			HTREEITEM hItem = treeCtrl.InsertItem( fi.szDisplayName, 
+			nImage, nImage );
+			treeCtrl.SetItemData( hItem, (DWORD)('A'+i));
+		}
+	}
+}

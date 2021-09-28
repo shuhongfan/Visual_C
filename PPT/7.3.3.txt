@@ -1,0 +1,26 @@
+void CEx_FieldView::OnInitialUpdate()
+{
+	CListView::OnInitialUpdate();
+	CListCtrl& m_ListCtrl = GetListCtrl();	// 获取内嵌在列表视图中的列表控件
+	CCourseSet cSet;			
+	cSet.Open();							// 打开记录集
+	CODBCFieldInfo field;
+	// 创建列表头
+	for (UINT i=0; i<cSet.m_nFields; i++)	{
+		cSet.GetODBCFieldInfo( i, field );
+		m_ListCtrl.InsertColumn(i,field.m_strName,LVCFMT_LEFT,100);
+	}
+	// 添加列表项
+	int nItem = 0;
+	CString str;
+	while (!cSet.IsEOF())	{
+		for (UINT i=0; i<cSet.m_nFields; i++){
+			cSet.GetFieldValue(i, str);	
+			if ( i == 0)	m_ListCtrl.InsertItem( nItem, str );
+			else		m_ListCtrl.SetItemText( nItem, i, str );
+		}
+		nItem++;
+		cSet.MoveNext();
+	}
+	cSet.Close();					// 关闭记录集
+}

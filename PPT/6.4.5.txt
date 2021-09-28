@@ -1,0 +1,36 @@
+void CEx_TextView::OnDraw(CDC* pDC)
+{
+	CEx_TextDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	// 创建字体
+	CFont cf;
+	cf.CreateFontIndirect(&m_lfText);
+	CFont* oldFont = pDC->SelectObject(&cf);
+	// 计算每行高度
+	TEXTMETRIC tm;
+	pDC->GetTextMetrics(&tm);
+	int lineHeight = tm.tmHeight + tm.tmExternalLeading;
+	int y = 0;
+	int tab = tm.tmAveCharWidth * 4;		// 为一个Tab设置4个字符
+	// 输出并计算行的最大长度
+	int lineMaxWidth = 0;
+	CString str;
+	CSize lineSize(0,0);
+	for (int i=0; i<pDoc->m_strContents.GetSize(); i++) 
+	{
+		str = pDoc->m_strContents.GetAt(i);
+		pDC->TabbedTextOut(0, y, str, 1, &tab, 0);
+		str = str + "A";					// 多计算一个字符宽度
+		lineSize = pDC->GetTabbedTextExtent(str, 1, &tab);
+		if ( lineMaxWidth < lineSize.cx )
+			lineMaxWidth = lineSize.cx;
+		y += lineHeight;
+	}
+	pDC->SelectObject(oldFont);
+	// 多算一行，以滚动窗口能全部显示文档内容
+	int nLines =  pDoc->m_strContents.GetSize() + 1;	
+	CSize sizeTotal;
+	sizeTotal.cx = lineMaxWidth;
+	sizeTotal.cy = lineHeight * nLines;
+	SetScrollSizes(MM_TEXT, sizeTotal);			// 设置滚动逻辑窗口的大小
+}

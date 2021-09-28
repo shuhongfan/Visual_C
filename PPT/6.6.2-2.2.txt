@@ -1,0 +1,48 @@
+void CEx_PrintView::PrintHead(CDC* pDC, CPrintInfo* pInfo, PAGEINFO page, 
+CString title, int margin, int mode)
+// mode表示页眉文本对齐模式，0为居中，>0表示右对齐，<0表示左对齐
+// title表示页眉内容，margin为页眉与顶边的距离
+{
+	CFont font;
+	font.CreateFontIndirect(&page.lfHead);
+	CFont* oldFont = pDC->SelectObject(&font);
+	CSize strSize = pDC->GetTextExtent(title);
+	CRect rc = pInfo->m_rectDraw;
+	CPoint pt;
+	margin = margin - page.nPhyTop;
+	if (margin<0) margin = 0;
+	// 根据mode计算绘制页眉文本的起点
+	if (mode < 0) pt = CPoint(rc.left, -margin);
+	if (mode == 0) pt = CPoint(rc.CenterPoint().x - strSize.cx/2, -margin);
+	if (mode > 0) pt = CPoint(rc.right - strSize.cx, -margin);
+	pDC->TextOut(pt.x, pt.y, title);	// 绘制页眉文本
+	pt.y -= strSize.cy + 5;
+	pDC->MoveTo(rc.left, pt.y);			// 画线
+	pDC->LineTo(rc.right, pt.y);
+	pt.y -= 10;
+	int absY = pt.y>0 ? pt.y : -pt.y;
+	if (absY > page.nTMargin) pInfo->m_rectDraw.top = pt.y; 
+	pDC->SelectObject(oldFont);
+	font.DeleteObject();
+}
+void CEx_PrintView::PrintFoot(CDC* pDC, CPrintInfo* pInfo, PAGEINFO page, 
+CString title, int margin, int mode)
+// mode表示页脚文本对齐模式，0为居中，>0表示右对齐，<0表示左对齐
+// title表示页脚内容，margin为页脚与底边的距离
+{
+	CFont font;
+	font.CreateFontIndirect(&page.lfFoot);
+	CFont* oldFont = pDC->SelectObject(&font);
+	CSize strSize = pDC->GetTextExtent(title);
+	CRect rc = pInfo->m_rectDraw;
+	CPoint pt;
+	margin = page.nBMargin - margin - strSize.cy;
+	// 根据mode计算绘制页眉文本的起点
+	if (mode < 0) pt = CPoint(rc.left, rc.bottom - margin);
+	if (mode == 0) pt = CPoint(rc.CenterPoint().x - strSize.cx/2,  rc.bottom 		- margin);
+	if (mode > 0) pt = CPoint(rc.right - strSize.cx,  rc.bottom - margin);
+	pDC->TextOut(pt.x, pt.y, title);	// 绘制页脚文本
+	if (margin < 0) 
+		pInfo->m_rectDraw.bottom -= margin;
+	pDC->SelectObject(oldFont);
+}

@@ -1,0 +1,23 @@
+CEx_PrintView::CEx_PrintView()
+{
+	memset(&m_pageInfo, 0, sizeof(m_pageInfo));			// 所有成员置为0
+	double fontScale = 254.0/72.0;	// 一个点相当于多少0.1mm
+
+	// 页眉字体
+	m_pageInfo.lfHead.lfHeight = - (int)(9 * fontScale + 0.5);	// 9号字
+	m_pageInfo.lfHead.lfWeight = FW_BOLD;
+	m_pageInfo.lfHead.lfCharSet = GB2312_CHARSET;
+	strcpy((LPSTR)&(m_pageInfo.lfHead.lfFaceName), "黑体");
+
+	// 页脚字体
+	m_pageInfo.lfFoot.lfHeight = - (int)(9 * fontScale + 0.5);	// 9号字
+	m_pageInfo.lfFoot.lfWeight = FW_NORMAL;
+	m_pageInfo.lfFoot.lfCharSet = GB2312_CHARSET;
+	strcpy((LPSTR)&(m_pageInfo.lfFoot.lfFaceName), "楷体_GB2312");
+
+	// 正文字体
+	m_pageInfo.lfText.lfHeight = - (int)(11 * fontScale + 0.5);	// 11号字
+	m_pageInfo.lfText.lfWeight = FW_NORMAL;
+	m_pageInfo.lfText.lfCharSet = GB2312_CHARSET;
+	strcpy((LPSTR)&(m_pageInfo.lfText.lfFaceName), "宋体");
+}

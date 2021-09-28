@@ -1,0 +1,32 @@
+void CEx_FileDlg::OnButtonOpen() 
+{
+	CString filter;
+	filter = "文本文件(*.txt)|*.txt|C++文件(*.h,*.cpp)|*.h;*.cpp||"; 
+	CFileDialog dlg (TRUE, NULL, NULL, OFN_HIDEREADONLY, filter);
+	if (dlg.DoModal () != IDOK) return;
+	CString strFileName = dlg.GetPathName();
+	CFileStatus status;
+	if( !CFile::GetStatus( strFileName, status ) )   
+	{
+		MessageBox("该文件不存在！");		return;
+	}
+	m_strTitle.Format( "%s [%s,%ld字节]", strFileName, 
+		status.m_ctime.Format( "%Y-%m-%d" ), status.m_size );
+	UpdateData( FALSE );
+	// 打开文件，并读取数据
+	m_strContent.Empty();
+	CFile theFile;
+	if (!theFile.Open(  strFileName, CFile::modeRead ))
+	{
+			MessageBox("该文件无法打开！");		return;
+	}
+	char      szBuffer[80]; 
+	UINT      nActual = 0; 
+	while ( nActual = theFile.Read( szBuffer, sizeof( szBuffer ) ) )
+	{
+			CString str( szBuffer,  nActual );
+			m_strContent = m_strContent + str;
+	}
+	theFile.Close();
+	UpdateData( FALSE );
+}

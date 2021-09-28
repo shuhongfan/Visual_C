@@ -1,0 +1,23 @@
+
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs,  CCreateContext* 
+pContext) 
+{
+CRect rc;
+GetClientRect(rc);							// 获取客户区大小
+CSize paneSize(rc.Width()/2-16,rc.Height()/3-16); // 计算每个窗格的平均尺寸
+m_wndSplitter.CreateStatic(this,3,2);				// 创建3 × 2个静态窗格
+
+m_wndSplitter.CreateView(0,0,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);						// 为相应的窗格指定视图类
+m_wndSplitter.CreateView(0,1,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);
+m_wndSplitter.CreateView(1,0,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);
+m_wndSplitter.CreateView(1,1,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);
+m_wndSplitter.CreateView(2,0,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);
+m_wndSplitter.CreateView(2,1,RUNTIME_CLASS(CDemoView),
+	paneSize,pContext);
+return TRUE;
+}

@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Form - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP18C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Form.pdb" /debug /machine:I386 /out:"Debug/Ex_Form.exe" /pdbtype:sept 
+".\Debug\Ex_Form.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_FormDoc.obj"
+".\Debug\Ex_FormView.obj"
+".\Debug\Ex_Form.res"
+".\Debug\TextView.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP18C.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Form.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,41 @@
+void CEx_ADOView::OnViewCourse() 
+{
+	CListCtrl& m_ListCtrl = GetListCtrl();
+	// 删除列表中所有行和列表头
+	m_ListCtrl.DeleteAllItems();
+	int nColumnCount = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	for (int i=0; i<nColumnCount; i++)
+		m_ListCtrl.DeleteColumn(0);
+	m_pRecordset->Open( "Course",		// 指定要打开的表
+		m_pConnection.GetInterfacePtr(),// 获取当前数据库连接的接口指针
+		adOpenDynamic,					// 动态游标类型，可以使用Move等操作
+		adLockOptimistic,	adCmdTable);
+	// 建立列表控件的列表头
+	FieldsPtr flds = m_pRecordset->GetFields();		// 获取当前表的字段指针
+	_variant_t Index;	
+	Index.vt = VT_I2;
+	m_ListCtrl.InsertColumn(0, "序号", LVCFMT_LEFT, 60 );
+	for (i = 0; i < (int)flds->GetCount(); i++)   {
+		Index.iVal=i;
+		m_ListCtrl.InsertColumn(i+1, (LPSTR)flds->GetItem(Index)->Get- 				Name(), 
+			LVCFMT_LEFT, 140 );
+ 	}
+	// 显示记录
+	_bstr_t str, value;
+	int nItem = 0;
+	CString strItem;
+	while(!m_pRecordset->adoEOF){
+		strItem.Format("%d", nItem+1);
+		m_ListCtrl.InsertItem(nItem, strItem );
+		for (i = 0; i < (int)flds->GetCount(); i++)
+		{
+			Index.iVal=i;
+			str = flds->GetItem(Index)->GetName();
+			value = m_pRecordset->GetCollect(str);
+			m_ListCtrl.SetItemText( nItem, i+1, (LPCSTR)value );
+		}
+		m_pRecordset->MoveNext();
+		nItem++;
+	}
+	m_pRecordset->Close();	
+}

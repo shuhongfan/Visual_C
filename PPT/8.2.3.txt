@@ -1,0 +1,16 @@
+void CMainFrame::OnOpTest() 
+{
+	typedef void (WINAPI * TESTDLL)();
+	HINSTANCE hmod;
+	hmod = ::LoadLibrary ("Ex_DLL.dll");
+	if(hmod == NULL)
+	{
+		AfxMessageBox("未能打开Ex_DLL.dll!");
+		return;
+	}
+	TESTDLL lpproc;
+	lpproc = (TESTDLL)GetProcAddress (hmod,"ShowStuInfoDlg");
+	if (lpproc != (TESTDLL)NULL )	
+		(*lpproc)();		// 执行函数
+	FreeLibrary(hmod); 
+}

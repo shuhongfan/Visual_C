@@ -1,0 +1,18 @@
+int nRet = dlg.DoModal();
+// Handle the return value from DoModal
+switch ( nRet )
+{
+   case -1:					// 有错误
+      AfxMessageBox("Dialog box could not be created!");
+      break;
+   case IDOK:				// 确定
+      // Do something
+      break;
+   case IDCANCEL:			// 取消
+      // Do something
+      break;
+   default:
+      // Do something
+      break;
+ };
+

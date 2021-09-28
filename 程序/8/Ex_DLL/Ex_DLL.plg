@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_DLL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP68.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Debug/Ex_DLL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\VISUAL C++³ÌÐò\µÚ9ÕÂ\Ex_DLL\Ex_DLL.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP68.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP69.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/Ex_DLL.pdb" /debug /machine:I386 /def:".\Ex_DLL.def" /out:"Debug/Ex_DLL.dll" /implib:"Debug/Ex_DLL.lib" /pdbtype:sept 
+".\Debug\Ex_DLL.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StuInfoDlg.obj"
+".\Debug\Ex_DLL.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP69.tmp"
+<h3>Output Window</h3>
+Compiling...
+Ex_DLL.cpp
+Linking...
+   Creating library Debug/Ex_DLL.lib and object Debug/Ex_DLL.exp
+Ex_DLL.obj : error LNK2001: unresolved external symbol _m_dlg
+Debug/Ex_DLL.dll : fatal error LNK1120: 1 unresolved externals
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+Ex_DLL.dll - 2 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+void CEx_ODBCView::OnButtonQuery() 
+{
+	UpdateData();
+	m_strQuery.TrimLeft();
+	if (m_strQuery.IsEmpty())
+	{
+		MessageBox("要查询的学号不能为空！");
+		return;
+	}
+	if (m_pSet->IsOpen())
+		m_pSet->Close();			// 如果记录集打开，则先关闭
+	m_pSet->m_strFilter.Format("studentno='%s'",m_strQuery);	
+	// studentno是score表的字段名，用来指定查询条件
+	m_pSet->m_strSort = "course";	
+	// course是score表的字段名，用来按course字段从小到大排序
+	m_pSet->Open();					// 打开记录集
+	if (!m_pSet->IsEOF())			// 如果打开记录集有记录
+		UpdateData(FALSE);			// 自动更新表单中控件显示的内容
+	else
+		MessageBox("没有查到你要找的学号记录！");
+}

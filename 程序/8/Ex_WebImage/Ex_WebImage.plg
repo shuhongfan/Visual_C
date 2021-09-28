@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_WebImage - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_WebImage.res" /d "_DEBUG" /d "_AFXDLL" "C:\Visual C++程序\第9章\Ex_WebImage\Ex_WebImage.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2A.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_WebImage.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++程序\第9章\Ex_WebImage\Ex_WebImage.cpp"
+"C:\Visual C++程序\第9章\Ex_WebImage\Ex_WebImageDlg.cpp"
+"C:\Visual C++程序\第9章\Ex_WebImage\webbrowser2.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2A.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2B.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_WebImage.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++程序\第9章\Ex_WebImage\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2B.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_WebImage.pdb" /debug /machine:I386 /out:"Debug/Ex_WebImage.exe" /pdbtype:sept 
+".\Debug\Ex_WebImage.obj"
+".\Debug\Ex_WebImageDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Ex_WebImage.res"
+".\Debug\webbrowser2.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP2C.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_WebImage.cpp
+Ex_WebImageDlg.cpp
+webbrowser2.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_WebImage.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

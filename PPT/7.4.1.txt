@@ -1,0 +1,37 @@
+void CEx_ADOView::OnInitialUpdate()
+{
+	CListView::OnInitialUpdate();
+	m_pConnection.CreateInstance(_ _uuidof(Connection)); 
+												// 初始化Connection指针
+	m_pRecordset.CreateInstance(_ _uuidof(Recordset));
+												// 初始化Recordset指针
+	m_pCommand.CreateInstance(_ _uuidof(Command));	// 初始化Recordset指针
+	// 连接数据源为Database Example For VC++
+	m_pConnection->ConnectionString = "DSN=Database Example For VC++";
+	m_pConnection->ConnectionTimeout = 30; 		// 允许连接超时时间，单位为秒
+	HRESULT  hr = m_pConnection->Open("","","",0); 
+	if (hr != S_OK) MessageBox("无法连接指定的数据库！");
+	// 获取数据表名和字段名
+	_RecordsetPtr  pRstSchema  = NULL;			// 定义一个记录集指针
+	pRstSchema = m_pConnection->OpenSchema(adSchemaColumns);
+												// 获取表信息
+	// 将表信息显示在列表视图控件中
+	CListCtrl& m_ListCtrl = GetListCtrl();
+	CString strHeader[3] = {"序号","TABLE_NAME","COLUMN_NAME"};
+	for (int i=0; i<3; i++)
+		m_ListCtrl.InsertColumn( i, strHeader[i], LVCFMT_LEFT, 120);
+	int nItem = 0;
+	CString str;
+	_bstr_t value;
+	while(!(pRstSchema->adoEOF)) {
+		str.Format("%d", nItem+1 );
+		m_ListCtrl.InsertItem( nItem, str );
+		for (int i=1; i<3; i++) {
+			value = pRstSchema->Fields->GetItem((_bstr_t)(LPCSTR)strHea- 				der[i])->Value;
+			m_ListCtrl.SetItemText( nItem, i, value );
+		}
+		pRstSchema->MoveNext();
+		nItem++;
+	}
+	pRstSchema->Close();
+}

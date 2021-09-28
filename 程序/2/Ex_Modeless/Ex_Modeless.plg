@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Modeless - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_Modeless.res" /d "_DEBUG" /d "_AFXDLL" "E:\Visual C++ 程序\第2章\Ex_Modeless\Ex_Modeless.rc"" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C4.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Modeless.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"E:\Visual C++ 程序\第2章\Ex_Modeless\Ex_Modeless.cpp"
+"E:\Visual C++ 程序\第2章\Ex_Modeless\MainFrm.cpp"
+"E:\Visual C++ 程序\第2章\Ex_Modeless\Ex_ModelessDoc.cpp"
+"E:\Visual C++ 程序\第2章\Ex_Modeless\Ex_ModelessView.cpp"
+"E:\Visual C++ 程序\第2章\Ex_Modeless\LessDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C4.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C5.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Modeless.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"E:\Visual C++ 程序\第2章\Ex_Modeless\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C5.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C6.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Modeless.pdb" /debug /machine:I386 /out:"Debug/Ex_Modeless.exe" /pdbtype:sept 
+".\Debug\Ex_Modeless.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_ModelessDoc.obj"
+".\Debug\Ex_ModelessView.obj"
+".\Debug\Ex_Modeless.res"
+".\Debug\LessDlg.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP27C6.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_Modeless.cpp
+MainFrm.cpp
+Ex_ModelessDoc.cpp
+Ex_ModelessView.cpp
+LessDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Modeless.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Ctrl6SDI - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP48F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Ctrl6SDI.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Visual C++ ³ÌÐò\µÚ3ÕÂ\Ex_Ctrl6SDI\StuInfoDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP48F.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP490.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Ctrl6SDI.pdb" /debug /machine:I386 /out:"Debug/Ex_Ctrl6SDI.exe" /pdbtype:sept 
+".\Debug\Ex_Ctrl6SDI.obj"
+".\Debug\Ex_Ctrl6SDIDoc.obj"
+".\Debug\Ex_Ctrl6SDIView.obj"
+".\Debug\ListDlg.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StuInfoDlg.obj"
+".\Debug\Ex_Ctrl6SDI.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP490.tmp"
+<h3>Output Window</h3>
+Compiling...
+StuInfoDlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Ctrl6SDI.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

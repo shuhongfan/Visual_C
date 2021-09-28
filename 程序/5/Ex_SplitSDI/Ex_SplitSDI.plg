@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_SplitSDI - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_SplitSDI.res" /d "_DEBUG" /d "_AFXDLL" "C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\Ex_SplitSDI.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP14.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_SplitSDI.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\Ex_SplitSDI.cpp"
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\MainFrm.cpp"
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\Ex_SplitSDIDoc.cpp"
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\Ex_SplitSDIView.cpp"
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\DemoView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP14.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP15.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_SplitSDI.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++ 程序\文档和视图\Ex_SplitSDI\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP15.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP16.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_SplitSDI.pdb" /debug /machine:I386 /out:"Debug/Ex_SplitSDI.exe" /pdbtype:sept 
+".\Debug\Ex_SplitSDI.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_SplitSDIDoc.obj"
+".\Debug\Ex_SplitSDIView.obj"
+".\Debug\Ex_SplitSDI.res"
+".\Debug\DemoView.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP16.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_SplitSDI.cpp
+MainFrm.cpp
+Ex_SplitSDIDoc.cpp
+Ex_SplitSDIView.cpp
+DemoView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_SplitSDI.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

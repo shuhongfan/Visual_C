@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Dlg - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_Dlg.res" /d "_DEBUG" /d "_AFXDLL" "E:\Visual C++ 程序\第2章\Ex_Dlg\Ex_Dlg.rc"" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP746.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Dlg.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"E:\Visual C++ 程序\第2章\Ex_Dlg\Ex_Dlg.cpp"
+"E:\Visual C++ 程序\第2章\Ex_Dlg\Ex_DlgDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP746.tmp" 
+Creating temporary file "C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP747.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_Dlg.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"E:\Visual C++ 程序\第2章\Ex_Dlg\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DINGYO~1.AGO\LOCALS~1\Temp\RSP747.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Dlg.pdb" /debug /machine:I386 /out:"Debug/Ex_Dlg.exe" /pdbtype:sept  ".\Debug\Ex_Dlg.obj" ".\Debug\Ex_DlgDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\Ex_Dlg.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_Dlg.cpp
+Ex_DlgDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Dlg.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

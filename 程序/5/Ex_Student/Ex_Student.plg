@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Student - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_Student.res" /d "_DEBUG" /d "_AFXDLL" "C:\Visual C++³ÌÐò\µÚ6ÕÂ\Ex_Student\Ex_Student.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP7E.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Student.pdb" /debug /machine:I386 /out:"Debug/Ex_Student.exe" /pdbtype:sept 
+".\Debug\Ex_Student.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_StudentDoc.obj"
+".\Debug\Ex_StudentView.obj"
+".\Debug\Ex_Student.res"
+".\Debug\StudentInfo.obj"
+".\Debug\StuInfoDlg.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP7E.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Student.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Student - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/Ex_Student.res" /d "NDEBUG" /d "_AFXDLL" "C:\Visual C++程序\实习\Ex_Student\Ex_Student.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP6.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/Ex_Student.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Visual C++程序\实习\Ex_Student\CourseDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\CourseSet.cpp"
+"C:\Visual C++程序\实习\Ex_Student\Ex_Student.cpp"
+"C:\Visual C++程序\实习\Ex_Student\Ex_StudentDoc.cpp"
+"C:\Visual C++程序\实习\Ex_Student\Ex_StudentView.cpp"
+"C:\Visual C++程序\实习\Ex_Student\MainFrm.cpp"
+"C:\Visual C++程序\实习\Ex_Student\ScoreDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\ScoreSet.cpp"
+"C:\Visual C++程序\实习\Ex_Student\SeekDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\SpecialDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\SpecialSet.cpp"
+"C:\Visual C++程序\实习\Ex_Student\StatDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\StatScoreDlg.cpp"
+"C:\Visual C++程序\实习\Ex_Student\StudentSet.cpp"
+"C:\Visual C++程序\实习\Ex_Student\StudentTreeView.cpp"
+"C:\Visual C++程序\实习\Ex_Student\StuInfoDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP6.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP7.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/Ex_Student.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Visual C++程序\实习\Ex_Student\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP7.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP8.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/Ex_Student.pdb" /machine:I386 /out:"Release/Ex_Student.exe" 
+".\Release\CourseDlg.obj"
+".\Release\CourseSet.obj"
+".\Release\Ex_Student.obj"
+".\Release\Ex_StudentDoc.obj"
+".\Release\Ex_StudentView.obj"
+".\Release\MainFrm.obj"
+".\Release\ScoreDlg.obj"
+".\Release\ScoreSet.obj"
+".\Release\SeekDlg.obj"
+".\Release\SpecialDlg.obj"
+".\Release\SpecialSet.obj"
+".\Release\StatDlg.obj"
+".\Release\StatScoreDlg.obj"
+".\Release\StdAfx.obj"
+".\Release\StudentSet.obj"
+".\Release\StudentTreeView.obj"
+".\Release\StuInfoDlg.obj"
+".\Release\Ex_Student.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP8.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CourseDlg.cpp
+CourseSet.cpp
+Ex_Student.cpp
+Ex_StudentDoc.cpp
+Ex_StudentView.cpp
+MainFrm.cpp
+ScoreDlg.cpp
+ScoreSet.cpp
+SeekDlg.cpp
+SpecialDlg.cpp
+SpecialSet.cpp
+StatDlg.cpp
+StatScoreDlg.cpp
+StudentSet.cpp
+StudentTreeView.cpp
+StuInfoDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Student.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

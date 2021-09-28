@@ -1,0 +1,44 @@
+void CEx_PrintView::SetPageInfo(CDC *pDC, CPrintInfo *pInfo, PAGEINFO 	*pPage, int l, int t, int r, int b, int nLineSpace)
+// nLineSpace为行间距，l,t,r,b分别表示左上右下的页边距
+{
+	// 计算一个设备单位等于多少0.1mm
+	double scaleX = 254.0/(double)GetDeviceCaps(pDC->m_hAttribDC, LOGPI- 		XELSX);
+	double scaleY = 254.0/(double)GetDeviceCaps(pDC->m_hAttribDC, LOGPI- 		XELSY);
+	int x = GetDeviceCaps(pDC->m_hAttribDC, PHYSICALOFFSETX);	
+	int y = GetDeviceCaps(pDC->m_hAttribDC, PHYSICALOFFSETY);	
+	int w = GetDeviceCaps(pDC->m_hAttribDC, PHYSICALWIDTH);	
+	int h = GetDeviceCaps(pDC->m_hAttribDC, PHYSICALHEIGHT);	
+	int nPageWidth = (int)((double)w*scaleX + 0.5);		// 纸宽，单位0.1mm 
+	int nPageHeight = (int)((double)h*scaleY + 0.5);	// 纸高，单位0.1mm 
+	int nPhyLeft = (int)((double)x*scaleX + 0.5);	// 物理左边距，单位0.1mm 
+	int nPhyTop = (int)((double)y*scaleY + 0.5);	// 物理上边距，单位0.1mm 
+	CRect rcTemp = pInfo->m_rectDraw;
+	rcTemp.NormalizeRect();
+	int nPhyRight = nPageWidth - rcTemp.Width() - nPhyLeft;
+													// 物理右边距，单位0.1mm
+	int nPhyBottom = nPageHeight - rcTemp.Height() - nPhyTop;
+													// 物理下边距，单位0.1mm
+	// 若边距小于物理边距，则调整它们
+	if (l < nPhyLeft) l = nPhyLeft;
+	if (t < nPhyTop) t = nPhyTop;
+	if (r < nPhyRight) r = nPhyRight;
+	if (b < nPhyBottom) b = nPhyBottom;
+	pPage->nLMargin = l;
+	pPage->nRMargin = r;
+	pPage->nTMargin = t;
+	pPage->nBMargin = b;
+	pPage->nPhyLeft = nPhyLeft;
+	pPage->nPhyRight = nPhyRight;
+	pPage->nPhyTop = nPhyTop;
+	pPage->nPhyBottom = nPhyBottom;
+	pPage->sizePage = CSize(nPageWidth, nPageHeight);
+	// 计算并调整pInfo->m_rectDraw的大小
+	pInfo->m_rectDraw.left = l - nPhyLeft;
+	pInfo->m_rectDraw.top  = - t + nPhyTop;
+	pInfo->m_rectDraw.right -= r - nPhyRight;
+	pInfo->m_rectDraw.bottom += b - nPhyBottom;
+	// 计算字符的大小
+	pPage->sizeChar = pDC->GetTextExtent("G");
+	// 计算行的大小
+	pPage->sizeLine = CSize(pInfo->m_rectDraw.Width(), pPage->sizeChar.cy 		+ nLineSpace);
+}

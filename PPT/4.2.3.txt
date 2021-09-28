@@ -1,0 +1,21 @@
+int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)	return -1;
+	int nRes = m_wndTestBar.CreateEx(this, TBSTYLE_FLAT, 
+		WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | 
+		CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC,
+		CRect(0,0,0,0),	AFX_IDW_TOOLBAR + 10);
+	if (!nRes || !m_wndTestBar.LoadToolBar(IDR_TOOLBAR1))
+	{
+		TRACE0("Failed to create toolbar\n");
+		return -1;      // ´´½¨Ê§°Ü
+	}
+¡­
+	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
+	m_wndTestBar.EnableDocking(CBRS_ALIGN_ANY);
+	EnableDocking(CBRS_ALIGN_ANY);
+	DockControlBar(&m_wndToolBar);
+	DockControlBar(&m_wndTestBar);
+¡­
+	return 0;
+}

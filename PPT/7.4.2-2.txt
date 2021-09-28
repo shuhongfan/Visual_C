@@ -1,0 +1,24 @@
+// 打开记录集
+m_pRecordset->AddNew();					// 添加新记录
+m_pRecordset->PutCollect("courseno",_variant_t("2112111"));
+m_pRecordset->PutCollect("coursehourse",_variant_t(60));
+…
+m_pRecordset->Update();					// 使添加有效
+// 关闭记录集
+
+若从course表中删除一个记录可有下列代码：
+
+// 打开记录集
+…
+m_pRecordset->Delete(adAffectCurrent);		// 删除当前行
+m_pRecordset->MoveFirst();					// 调用Move方法，使删除有效
+// 关闭记录集
+
+若从course表中修改一个记录可有下列代码：
+
+// 打开记录集
+m_pRecordset->PutCollect("courseno",_variant_t("2112111"));
+m_pRecordset->PutCollect("coursehourse",_variant_t(60));
+…
+m_pRecordset->Update();					// 使修改有效
+// 关闭记录集

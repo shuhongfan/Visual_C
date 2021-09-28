@@ -1,0 +1,39 @@
+void CEx_PrintView::OnPrint(CDC* pDC, CPrintInfo* pInfo) 
+{
+	CFont font;
+	font.CreateFontIndirect(&m_pageInfo.lfText);
+	CFont* oldFont = pDC->SelectObject(&font);			// 设置正文字体
+	SetPageInfo(pDC, pInfo, &m_pageInfo, 250, 250, 250, 250, 35);
+														// 设置页边距和行距
+	CEx_PrintDoc* pDoc = GetDocument();
+	CString str = pDoc->GetTitle();						// 获取文档名
+	PrintHead(pDC, pInfo, m_pageInfo, str, 200, -1);	// 打印页眉
+	str.Format("- %d -", pInfo->m_nCurPage);
+	PrintFoot(pDC, pInfo, m_pageInfo, str, 200, 0);		// 打印页脚
+	if (pDoc->m_strContents.GetSize() < 1)	return;	// 没有文档内容则返回
+	AdjustAllLine(pDC);								// 调整每行的文本
+	int nIndex = pInfo->m_nCurPage - 1;
+	int nStartLine = m_nLineArray.GetAt(nIndex);
+	CRect rc = pInfo->m_rectDraw;
+	int y = rc.top;
+	int nHeight = m_pageInfo.sizeLine.cy;
+	int tab = m_pageInfo.sizeChar.cx * 4;		// 为一个Tab设置4个字符
+	while (y >= pInfo->m_rectDraw.bottom) 
+	{
+		str =  m_arrText.GetAt(nStartLine);
+		rc.top = y;
+		pDC->TabbedTextOut(rc.left, y, str, 1, &tab, rc.left);  
+		nStartLine++;
+		if (nStartLine >= m_arrText.GetSize()) 
+		{
+			pInfo->SetMaxPage(pInfo->m_nCurPage);
+			pInfo->m_pPD->m_pd.nToPage = pInfo->m_nCurPage;
+			break;
+		}
+		y -= nHeight;
+	}
+	if (nIndex >= (m_nLineArray.GetSize() - 1)) 
+		m_nLineArray.Add(nStartLine);		// 保存下一页的起始行号
+	pDC->SelectObject(oldFont);
+	CView::OnPrint(pDC, pInfo);
+}

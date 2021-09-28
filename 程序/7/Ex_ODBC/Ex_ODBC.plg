@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_ODBC - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP47.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Ex_ODBC.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++³ÌÐò\µÚ8ÕÂ\Ex_ODBC\Ex_ODBCView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP47.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP48.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_ODBC.pdb" /debug /machine:I386 /out:"Debug/Ex_ODBC.exe" /pdbtype:sept 
+".\Debug\Ex_ODBC.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_ODBCDoc.obj"
+".\Debug\Ex_ODBCView.obj"
+".\Debug\Ex_ODBCSet.obj"
+".\Debug\Ex_ODBC.res"
+".\Debug\rowcursor.obj"
+".\Debug\msflexgrid.obj"
+".\Debug\font.obj"
+".\Debug\picture.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP48.tmp"
+<h3>Output Window</h3>
+Compiling...
+Ex_ODBCView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_ODBC.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

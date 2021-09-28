@@ -1,0 +1,23 @@
+BOOL CTreeDlg::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	m_ImageList.Create(16, 16, ILC_COLOR8 | ILC_MASK, 2, 1);
+	m_TreeCtrl.SetImageList( &m_ImageList, TVSIL_NORMAL );
+	SHFILEINFO fi;						// 定义一个文件信息结构变量
+	SHGetFileInfo("C:\\Windows", 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON);	// 获取文件夹图标
+	m_ImageList.Add( fi.hIcon );
+	SHGetFileInfo("C:\\Windows", 0, &fi, sizeof(SHFILEINFO),
+		SHGFI_ICON | SHGFI_SMALLICON | SHGFI_OPENICON);// 获取打开文件夹图标
+	m_ImageList.Add( fi.hIcon );
+	HTREEITEM hRoot, hParent;
+	hRoot = m_TreeCtrl.InsertItem("电气与电子工程学院",0,1);
+	hParent = m_TreeCtrl.InsertItem("电气工程及其自动化",hRoot);
+	m_TreeCtrl.InsertItem("210101",0,1, hParent);
+	hParent = m_TreeCtrl.InsertItem("机械电子工程",0,1, hRoot);
+	m_TreeCtrl.InsertItem("210105",0,1, hParent);
+	hRoot = m_TreeCtrl.InsertItem("数学与计算机科学学院",0,1);
+	hParent = m_TreeCtrl.InsertItem("计算机应用技术",hRoot);
+	m_TreeCtrl.InsertItem("160101",0,1, hParent);
+	return TRUE;  // return TRUE unless you set the focus to a control
+}

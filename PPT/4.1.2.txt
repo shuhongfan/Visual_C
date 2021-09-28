@@ -1,0 +1,14 @@
+void CMainFrame::OnViewTest() 
+{
+	m_NewMenu.Detach();				// 使菜单对象和菜单句柄分离
+	m_NewMenu.LoadMenu( IDR_MENU1 ); 
+	SetMenu(NULL); 					// 清除应用程序菜单
+	SetMenu( &m_NewMenu ); 			// 设置应用程序菜单
+}
+void CMainFrame::OnTestReturn() 
+{
+	m_NewMenu.Detach();
+	m_NewMenu.LoadMenu( IDR_MAINFRAME );
+	SetMenu(NULL);
+	SetMenu( &m_NewMenu );	
+} 

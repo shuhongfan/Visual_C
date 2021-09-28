@@ -1,0 +1,18 @@
+BOOL CEx_MDIDemoApp::InitInstance()
+{…
+		CMultiDocTemplate* pDocTemplate;
+		pDocTemplate = new CMultiDocTemplate(
+			IDR_EX_MDITYPE,
+			RUNTIME_CLASS(CEx_MDIDemoDoc),
+			RUNTIME_CLASS(CChildFrame), 
+			RUNTIME_CLASS(CEx_MDIDemoView));
+		AddDocTemplate(pDocTemplate);
+		pDocTemplate = new CMultiDocTemplate(
+			IDR_OTHERTYPE,						// 指定新的资源
+			RUNTIME_CLASS(COtherDoc),			// 指定新的文档类
+			RUNTIME_CLASS(CChildFrame),	
+			RUNTIME_CLASS(COtherView));			// 指定新的视图类
+		AddDocTemplate(pDocTemplate);
+		…
+		return TRUE;
+}

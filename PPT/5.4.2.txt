@@ -1,0 +1,79 @@
+void CEx_ListView::OnInitialUpdate()
+{
+	  CListView::OnInitialUpdate();
+	  // 创建图像列表
+	  m_ImageList.Create(32,32,ILC_COLOR8|ILC_MASK,1,1);
+	  m_ImageListSmall.Create(16,16,ILC_COLOR8|ILC_MASK,1,1);
+	  CListCtrl& m_ListCtrl = GetListCtrl();
+	  m_ListCtrl.SetImageList(&m_ImageList,LVSIL_NORMAL);
+	  m_ListCtrl.SetImageList(&m_ImageListSmall,LVSIL_SMALL);
+	  LV_COLUMN listCol;
+	  char* arCols[4]={"文件名", "大小", "类型", "修改日期"};
+	  listCol.mask = LVCF_FMT|LVCF_WIDTH|LVCF_TEXT|LVCF_SUBITEM;
+	  // 添加列表头
+	  for (int nCol=0; nCol<4; nCol++)	{
+			listCol.iSubItem = nCol;
+			listCol.pszText = arCols[nCol];
+			if (nCol == 1) 	
+				   listCol.fmt = LVCFMT_RIGHT;
+			else
+				   listCol.fmt = LVCFMT_LEFT;
+			m_ListCtrl.InsertColumn(nCol,&listCol);
+	  }
+	  // 查找当前目录下的文件
+	  CFileFind finder;
+	  BOOL bWorking = finder.FindFile("*.*");
+	  int nItem = 0, nIndex, nImage;
+	  CTime m_time;
+	  CString str, strTypeName;
+	  while (bWorking) {
+	        bWorking = finder.FindNextFile();
+	        if (finder.IsArchived()){
+				  str = finder.GetFilePath();
+				  SHFILEINFO fi;
+				  // 获取文件关联的图标和文件类型名
+				  SHGetFileInfo(str,0,&fi,sizeof(SHFILEINFO),
+					              SHGFI_ICON|SHGFI_LARGEICON|SHGFI_TYPE-
+					              NAME);
+				  strTypeName = fi.szTypeName;
+				  nImage = -1;
+				  for (int i=0; i<m_strArray.GetSize(); i++) 
+				  {
+				          if (m_strArray[i] == strTypeName) 
+				          {
+							    nImage = i;		break;
+				          }
+				  }
+				  if (nImage<0) 
+				  {	// 添加图标
+					nImage = m_ImageList.Add(fi.hIcon);
+					SHGetFileInfo(str,0,&fi,sizeof(SHFILEINFO),
+								   SHGFI_ICON|SHGFI_SMALLICON );
+					m_ImageListSmall.Add(fi.hIcon);
+					m_strArray.Add(strTypeName);
+				  }
+				  // 添加列表项
+				  nIndex = m_ListCtrl.InsertItem(nItem,finder. GetFile-
+				  Name(),nImage);
+				  DWORD dwSize = finder.GetLength();
+				  if (dwSize> 1024)
+					    str.Format("%dK", dwSize/1024);
+				  else
+					    str.Format("%d", dwSize);
+				  m_ListCtrl.SetItemText(nIndex, 1, str);
+				  m_ListCtrl.SetItemText(nIndex, 2, strTypeName);
+				  finder.GetLastWriteTime(m_time) ;
+				  m_ListCtrl.SetItemText(nIndex, 3, m_time.Format
+				  ("%Y-%m-%d"));
+				  nItem++;
+	        }
+	  }
+	  SetCtrlStyle(m_ListCtrl.GetSafeHwnd(), LVS_REPORT); // 设置为报表方式
+	  // 设置扩展风格，使得列表项一行全项选择且显示出网格线
+	  m_ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT|LVS_EX_GRIDLINES);
+	  m_ListCtrl.SetColumnWidth(0, LVSCW_AUTOSIZE);		// 设置列宽
+	  m_ListCtrl.SetColumnWidth(1, 100);	
+	  m_ListCtrl.SetColumnWidth(2, LVSCW_AUTOSIZE);	
+	  m_ListCtrl.SetColumnWidth(3, 200);	
+}
+

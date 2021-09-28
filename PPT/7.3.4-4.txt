@@ -1,0 +1,38 @@
+void CEx_StudentDlg::DispScoreAndCourseInfo(CString strFilter)
+{
+	m_listCtrl.DeleteAllItems();		// 删除所有的列表项
+	CScoreSet sSet;
+	sSet.m_strFilter = strFilter;		// 设置过滤条件
+	sSet.Open();						// 打开score表
+	int nItem = 0;	
+	CString str;
+	while (!sSet.IsEOF())	{
+		m_listCtrl.InsertItem( nItem, sSet.m_studentno);	// 插入学号
+		// 根据score表中的studentno(学号)获取student表中的"姓名"
+		CStudentSet uSet;
+		uSet.m_strFilter.Format("studentno='%s'", sSet.m_studentno);
+		uSet.Open();
+		if (!uSet.IsEOF()) 
+			m_listCtrl.SetItemText( nItem, 1, uSet.m_studentname);
+		uSet.Close();
+		m_listCtrl.SetItemText( nItem, 2, sSet.m_course);
+		// 根据score表中的course(课程号)获取course表中的课程信息
+		CCourseSet cSet;
+		cSet.m_strFilter.Format("courseno='%s'", sSet.m_course);
+		cSet.Open();	
+		UINT i = 7;
+		if (!cSet.IsEOF()) 
+		{
+			for (i=1; i<cSet.m_nFields; i++) {
+				cSet.GetFieldValue(i, str);				// 获取指定字段值
+				m_listCtrl.SetItemText( nItem, i+2, str);	
+			}
+		}
+		cSet.Close();
+		str.Format("%0.1f", sSet.m_score);
+		m_listCtrl.SetItemText( nItem, i+2, str);	
+		sSet.MoveNext();
+		nItem++;
+	}
+	if (sSet.IsOpen()) sSet.Close();
+}

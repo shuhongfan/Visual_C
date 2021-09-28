@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_TestDLL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_TestDLL.res" /d "_DEBUG" "C:\Visual C++程序\第9章\Ex_TestDLL\Ex_TestDLL.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9D.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/Ex_TestDLL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++程序\第9章\Ex_TestDLL\Ex_TestDLL.cpp"
+"C:\Visual C++程序\第9章\Ex_TestDLL\MainFrm.cpp"
+"C:\Visual C++程序\第9章\Ex_TestDLL\Ex_TestDLLDoc.cpp"
+"C:\Visual C++程序\第9章\Ex_TestDLL\Ex_TestDLLView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9D.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9E.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/Ex_TestDLL.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"C:\Visual C++程序\第9章\Ex_TestDLL\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9E.tmp" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9F.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_TestDLL.pdb" /debug /machine:I386 /out:"Debug/Ex_TestDLL.exe" /pdbtype:sept 
+".\Debug\Ex_TestDLL.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Ex_TestDLLDoc.obj"
+".\Debug\Ex_TestDLLView.obj"
+".\Debug\Ex_TestDLL.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP9F.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Ex_TestDLL.cpp
+MainFrm.cpp
+Ex_TestDLLDoc.cpp
+Ex_TestDLLView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_TestDLL.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

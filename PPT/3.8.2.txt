@@ -1,0 +1,24 @@
+void CListDlg::OnButtonAdd() 
+{
+	CStuInfoDlg dlg;
+	if (IDOK != dlg.DoModal()) return;
+	// 根据学号来判断学生基本信息是不是已经添加过
+	LVFINDINFO info;
+	info.flags = LVFI_PARTIAL|LVFI_STRING;
+	info.psz = dlg.m_strNo;
+	if (m_ListCtrl.FindItem( &info ) != -1) // 若找到
+	{
+		  CString str;
+		  str.Format("学号为%s的学生基本信息已添加过！", dlg.m_strNo);
+		   MessageBox(str);		return;
+	}
+	// 添加学生基本信息
+	int nIndex = m_ListCtrl.InsertItem(m_ListCtrl.GetItemCount(), dlg.m_		strNo);
+	m_ListCtrl.SetItemText( nIndex, 1, dlg.m_strName );
+	if (dlg.m_bMale)
+		   m_ListCtrl.SetItemText( nIndex, 2, "男" );
+	else
+		   m_ListCtrl.SetItemText( nIndex, 2, "女" );
+	m_ListCtrl.SetItemText( nIndex, 3, dlg.m_tBirth.Format("%Y-%m-%d"));
+	m_ListCtrl.SetItemText( nIndex, 4, dlg.m_strSpecial);
+}

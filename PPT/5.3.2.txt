@@ -1,0 +1,28 @@
+void CEx_SDIArchiveDoc::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring())	{
+		if (m_bIsMyDoc)						// 是自己的文档
+		{
+			for (int i=0; i<sizeof(m_chArchive); i++)	
+				ar<<m_chArchive[i];
+			ar.WriteString( m_strArchive );
+		} else
+			AfxMessageBox("数据无法保存！");
+	}else	{
+		ar>>m_chArchive[0];					// 读取文档首字符
+		if (m_chArchive[0] == '&')			// 是自己的文档
+		{
+			for (int i=1; i<sizeof(m_chArchive); i++)	
+				ar>>m_chArchive[i];
+			ar.ReadString( m_strArchive );
+			CString str;
+			str.Format("%s%s",m_chArchive,m_strArchive);
+			AfxMessageBox(str);
+			m_bIsMyDoc = TRUE;
+		}else							// 不是自己的文档
+		{
+			m_bIsMyDoc = FALSE;
+			AfxMessageBox("打开的文档无效！");
+		}
+	}
+}

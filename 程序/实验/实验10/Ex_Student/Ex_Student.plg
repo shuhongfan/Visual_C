@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Ex_Student - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Ex_Student.res" /d "_DEBUG" /d "_AFXDLL" "C:\Visual C++程序\实验\实验10\Ex_Student\Ex_Student.rc"" 
+Creating temporary file "C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP142.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Ex_Student.pdb" /debug /machine:I386 /out:"Debug/Ex_Student.exe" /pdbtype:sept 
+".\Debug\CourseSet.obj"
+".\Debug\Ex_Student.obj"
+".\Debug\Ex_StudentDoc.obj"
+".\Debug\Ex_StudentView.obj"
+".\Debug\MainFrm.obj"
+".\Debug\ScoreDlg.obj"
+".\Debug\ScoreSet.obj"
+".\Debug\SpecialSet.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StudentSet.obj"
+".\Debug\Ex_Student.res"
+".\Debug\SeekDlg.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YOUHED~1\LOCALS~1\Temp\RSP142.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+Ex_Student.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

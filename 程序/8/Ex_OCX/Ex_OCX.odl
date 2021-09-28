@@ -1,0 +1,74 @@
+// Ex_OCX.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Ex_OCX.tlb) that will become a resource in
+// Ex_OCX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(D5B4E181-18D1-47AB-9918-B357250DAD28), version(1.0),
+  helpfile("Ex_OCX.hlp"),
+  helpstring("Ex_OCX ActiveX Control module"),
+  control ]
+library EX_OCXLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CEx_OCXCtrl
+
+	[ uuid(F03E24A6-48FF-420B-B72B-767484D4A23D),
+	  helpstring("Dispatch interface for Ex_OCX Control"), hidden ]
+	dispinterface _DEx_OCX
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CEx_OCXCtrl)
+			[id(DISPID_FORECOLOR), bindable, requestedit] OLE_COLOR ForeColor;
+			[id(1)] boolean bCircle;
+			[id(2)] short nHatch;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CEx_OCXCtrl)
+			[id(3)] short CalCircleSize(short rcWidth, short rcHeight);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CEx_OCXCtrl
+
+	[ uuid(FEF49ACC-9484-402D-99A2-9A4AC0FF9D12),
+	  helpstring("Event interface for Ex_OCX Control") ]
+	dispinterface _DEx_OCXEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CEx_OCXCtrl)
+			[id(DISPID_CLICK)] void Click();
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CEx_OCXCtrl
+
+	[ uuid(B062EB11-4DEF-4672-930C-2FBA10004399),
+	  helpstring("Ex_OCX Control"), control ]
+	coclass Ex_OCX
+	{
+		[default] dispinterface _DEx_OCX;
+		[default, source] dispinterface _DEx_OCXEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
